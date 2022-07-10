@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--cabeçalho-->
+<h2>Produtos</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th scope="col">#id</th>
+        <th scope="col">Produto</th>
+        <th scope="col">Descricao</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Quantidade</th>
+        <th scope="col">Image</th>
+        <!--th scope="col">Deleted</th-->
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="p : ${produtos}" th:object="${p}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{produto}"></td>
+        <td th:text="*{decricao}"></td>
+        <td th:text="*{preco}"></td>
+        <td th:text="*{quantidade}"></td>
+        <!--td th:text="*{imageUri}"></td-->
+        <td> <a th:href="@{'/editar/'+ *{id}}">Editar</a> </td>
+        <td> <a th:href="@{'/deletar/'+ *{id}}">Deletar</a></td>
+    </tr>
+
+    </tbody>
+</table>
+<!-- footer-->
+</body>
+</html>
