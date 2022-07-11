@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Adimin</title>
+</head>
+<body>
+<h1>Página do ADM</h1>
+<table >
+    <thead>
+    <tr>
+        <th scope="col">#id</th>
+        <th scope="col">Produto</th>
+        <th scope="col">Descricao</th>
+        <th scope="col">Preco</th>
+        <th scope="col">Quantidade</th>
+        <th scope="col">img</th>
+        <!--th scope="col">Deleted</th-->
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="p : ${produtos}" th:object="${p}">
+        <td th:text="*{id}"> </td>
+        <td th:text="*{produto}"> </td>
+        <td th:text="*{descricao}"> </td>
+        <td th:text="*{preco}"> </td>
+        <td th:text="*{quantidade}"> </td>
+        <td th:text="*{imageUri}"> </td>
+        <!--td th:text="*{deleted}" > </td-->
+        <td> <a th:href="@{'/editar/'+ *{id}}">Editar</a> </td>
+        <td> <a th:href="@{'/deletar/'+ *{id}}">Deletar</a></td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

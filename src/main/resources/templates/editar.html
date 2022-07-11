@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar</title>
+</head>
+<body>
+<div >
+    <form th:object="${produto}" method="post" th:action="@{/salvar}">
+        <input type="hidden" th:field="*{id}">
+        <table class="table table-sm">
+            <tbody>
+            <tr>
+                <td >Produto:</td>
+                <td><input type="text"  th:field="*{produto}"></td>
+                <td th:if="${#fields.hasErrors('produto')}" >
+                    <li class="error" th:each="err :${#fields.errors('produto')}" th:text="${err}"></li>
+                </td>
+            </tr>
+            <tr>
+                <td >Descricao:</td>
+                <td><input type="text"  th:field="*{descricao}"></td>
+                <td th:if="${#fields.hasErrors('descricao')}" >
+                    <li class="error" th:each="err :${#fields.errors('descricao')}" th:text="${err}"></li>
+                </td>
+            </tr>
+            <tr>
+                <td>Preco:</td>
+                <td><input type="text"  th:field="*{preco}"></td>
+                <td th:if="${#fields.hasErrors('preco')}" >
+                    <li class="error" th:each="err :${#fields.errors('preco')}" th:text="${err}"></li>
+                </td>
+            </tr>
+            <tr>
+                <td >Quantidade:</td>
+                <td><input type="text"  th:field="*{quantidade}"></td>
+                <td th:if="${#fields.hasErrors('quantidade')}" >
+                    <li class="error" th:each="err :${#fields.errors('quantidade')}" th:text="${err}"></li>
+            </tr>
+            <tr>
+                <td >ImageUri:</td>
+                <td><input type="text" class="form-control" th:field="*{imageUri}"></td>
+                </td>
+            </tr>
+
+            <tr>
+                <td ><button type="submit">Enviar</button></td>
+                <td><button type="reset">Limpar</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -35,7 +35,8 @@ public class ProjectWebEcarsApplication {
                     new Prod_automobilis(0l,"Oz-ultraleggera-matt-bronze-5x112","aro e tala 18x8 | matéria prima: Al Si 7 Mg",15236.45,8,"na",false),
                     new Prod_automobilis(02l,"OZ Ultraleggera Crystal Titanium","desing: 6 Spokes | Duplos matéria prima: Al Si 7 Mg",15236.45,8,"na",false),
                     new Prod_automobilis(03l,"Kit Freios Brembo Stage 5 ","Pinças Brembo de 6 Pistões | VW Golf GTI 1.8T / Audi A3 8L 1.8T",36386.00,1,"na",false),
-                    new Prod_automobilis(04l, "TURBO GARRETT GTX3582R GEN II","Indutor: 66 mm | Exdutor: 82 mm",22580.22,3,"na",false)
+                    new Prod_automobilis(04l, "TURBO GARRETT GTX3582R GEN II","Indutor: 66 mm | Exdutor: 82 mm",22580.22,3,"na",false),
+                new Prod_automobilis(05l, "produto vazio ","produto excluido/inativo",0.00,3,"na",false)
                 ).collect(Collectors.toList());
         prod_automobilis_repository.saveAll(prod_automobilis);
 

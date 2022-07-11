@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 public class Prod_automobilis {
 
     @Id
-    long id;
+    Long id;
 
     @Column(length = 36)
     @NotBlank(message = "nome do produto não pode ser vazio!")
@@ -28,7 +28,7 @@ public class Prod_automobilis {
     @Column(length = 75)
     @NotBlank(message = "descrição não pode ser vazio!")
     @Size(max = 75, message ="campo máximo permitido é 75!")
-    String decricao;
+    String descricao;
 
     //@NotBlank(message = "preço não pode ser vazio!")
     @Column(columnDefinition = "NUMERIC(8,2)")
