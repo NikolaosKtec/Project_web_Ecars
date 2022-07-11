@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class Prod_automobilis_controller {
@@ -17,13 +19,24 @@ public class Prod_automobilis_controller {
         this.service = service;
     }
 
-    @GetMapping("/index")
+    @GetMapping({"/index","/"})
     public String dohome(Model model){
 
-         List<Prod_automobilis> produtos = service.findAll();
+         List<Prod_automobilis> produtos_all = service.findAll();
+         List<Prod_automobilis> produtos_valid = new ArrayList<>();
 
-            model.addAttribute("produtos", produtos);
+         produtos_all.stream().
+                 filter(filtred -> filtred.isDeleted() == false).
+                 forEach( filtred -> produtos_valid.add(filtred));
+
+
+            model.addAttribute("produtos", produtos_valid);
 
         return "index";
+    }
+
+    @GetMapping("/teste")
+    public String bootstr(){
+        return "bootstrTT";
     }
 }
