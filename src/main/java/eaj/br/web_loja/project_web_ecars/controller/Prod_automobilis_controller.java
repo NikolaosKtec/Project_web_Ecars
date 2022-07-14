@@ -35,8 +35,12 @@ public class Prod_automobilis_controller {
         return "index";
     }
 
-    @GetMapping("/teste")
-    public String bootstr(){
-        return "bootstrTT";
-    }
+   @GetMapping("/cadastro")
+    public String doCadastrar(Model model){
+        Prod_automobilis prod_automobilis = new Prod_automobilis();
+
+        model.addAttribute("produto",prod_automobilis);
+
+        return "cadastrar";
+   }
 }

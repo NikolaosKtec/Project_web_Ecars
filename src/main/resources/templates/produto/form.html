@@ -1,0 +1,49 @@
+<div th:fragment="form(produto)">
+    <main class="form-signin w-100 m-auto">
+        <form th:object="${produto}" method="post" th:action="@{/salvar}" enctype="multipart/form-data">
+            <h1 class="h3 mb-3 fw-normal" >Cadastro inventario</h1>
+            <input type="hidden" th:field="*{id}">
+            <table class="table table-sm">
+                <tbody>
+                <tr>
+                    <td >Produto:</td>
+                    <td><input type="text"  th:field="*{produto}" required></td>
+                    <td th:if="${#fields.hasErrors('produto')}" >
+                        <li class="error" th:each="err :${#fields.errors('produto')}" th:text="${err}"></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Descricao:</td>
+                    <td><input type="text" required  th:field="*{descricao}"></td>
+                    <td th:if="${#fields.hasErrors('descricao')}" >
+                        <li class="error" th:each="err :${#fields.errors('descricao')}" th:text="${err}"></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preco:</td>
+                    <td><input type="number" step="0.1"  required th:field="*{preco}"></td>
+                    <td th:if="${#fields.hasErrors('preco')}" >
+                        <li class="error" th:each="err :${#fields.errors('preco')}" th:text="${err}"></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Quantidade:</td>
+                    <td><input type="number" step="1" required  th:field="*{quantidade}"></td>
+                    <td th:if="${#fields.hasErrors('quantidade')}" >
+                        <li class="error" th:each="err :${#fields.errors('quantidade')}" th:text="${err}"></li>
+                </tr>
+                <tr>
+                    <td >ImageUri:</td>
+                    <td><input type="file" name="file"/></td>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td ><button type="submit" class="w-100 btn btn-lg btn-primary" >Enviar</button></td>
+                    <td><button type="reset" class="w-100 btn btn-lg btn-secondary">Limpar</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </main>
+</div>
